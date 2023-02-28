@@ -13,6 +13,7 @@ More info on the project can be found [here](https://wiki.bme-paris.com/2023-pro
 
 
 **Project team**: Polina Kostina, Sirikorn Chalanunt, Dimitar Tahov
+
 **Project supervisor**: Prof.-Dr. Samuel Bottani
  
 **Project location**: Université Paris Cité, Biomedical Engineering Division (BME).
