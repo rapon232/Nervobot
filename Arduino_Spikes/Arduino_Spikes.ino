@@ -131,13 +131,13 @@ void loop()
   {
     if(angle > 0)
     {
-      frequency = angle;
+      frequency = angle/2;
       fire1 = HIGH;
       fire2 = LOW;
     }
     else if (angle < 0)
     {
-      frequency = (angle * -1);
+      frequency = (angle * -1)/2;
       fire1 = LOW;
       fire2 = HIGH;
     }
@@ -147,9 +147,19 @@ void loop()
       fire2 = LOW;
     }
 
-    cycle = 1000/frequency;
-    lowPeriod  = 5*cycle/6;
-    highPeriod = cycle/6;
+    if(frequency != 0)
+    {
+      cycle = 1000/frequency;
+      lowPeriod  = 5*cycle/6;
+      highPeriod = cycle/6;
+    }
+    else
+    {
+      //lowPeriod = 0;
+      //highPeriod = 0;
+      fire1 = LOW;
+      fire2 = LOW;
+    }
   }
   
 
