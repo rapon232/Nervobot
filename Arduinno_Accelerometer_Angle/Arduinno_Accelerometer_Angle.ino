@@ -1,3 +1,5 @@
+#include<Wire.h>
+
 const int unitsPerG = 163; // depends on your ADC and the range (1.5g vs 6g)
 int axisPin[] = {A0, A1, A2};
 int selfTestPin = 8;
@@ -15,9 +17,13 @@ void setup(){
   digitalWrite(selfTestPin, LOW);
   digitalWrite(gSelectPin, LOW);
   getStartVals(); 
+
+  Wire.begin(); 
+
 }
 
 void loop(){
+
   int angles[3] = {0};
   int raw[3] = {0};
   float gVal[3] = {0.0};
@@ -26,7 +32,7 @@ void loop(){
   getAngles(angles,raw);
   getGValues(gVal, raw); 
 
-  Serial.print("x-Raw:  "); sprintf(result,"%6d", raw[0]); // sprintf for format
+  /*Serial.print("x-Raw:  "); sprintf(result,"%6d", raw[0]); // sprintf for format
   Serial.print(result);
   Serial.print("     ");
   Serial.print("y-Raw:  "); sprintf(result,"%6d", raw[1]); 
@@ -52,9 +58,14 @@ void loop(){
   Serial.print("     ");
   Serial.print("z-g:      ");
   Serial.println(gVal[2]);
-  Serial.println();
+  Serial.println(); */
+
+  Wire.beginTransmission(9);
+  Wire.write(angles[2]);
+  Serial.println(angles[2]);
+  Wire.endTransmission();
   
-  delay(500);
+  //delay(1000);
 }
 
 void getGValues(float gValueArray[], int rawArray[]){
