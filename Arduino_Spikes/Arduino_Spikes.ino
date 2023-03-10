@@ -66,7 +66,7 @@ void receiveEvent(int bytes)
 		angle *= -1;
 	}
 
-  Serial.println(angle);
+  //Serial.println(angle);
 }
 
 
@@ -131,13 +131,13 @@ void loop()
   {
     if(angle > 0)
     {
-      frequency = angle/2;
+      frequency = angle;
       fire1 = HIGH;
       fire2 = LOW;
     }
     else if (angle < 0)
     {
-      frequency = (angle * -1)/2;
+      frequency = (angle * -1);
       fire1 = LOW;
       fire2 = HIGH;
     }

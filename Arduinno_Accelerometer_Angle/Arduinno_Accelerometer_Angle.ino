@@ -8,8 +8,10 @@ int sleepPin = 10;
 int startVal[3] = {0};
 char result[8]; // for format of the output
 
-void setup(){
+void setup()
+{
   Serial.begin(9600);
+
   pinMode(selfTestPin, OUTPUT);
   pinMode(gSelectPin, OUTPUT);
   pinMode(sleepPin, OUTPUT);
@@ -19,7 +21,6 @@ void setup(){
   getStartVals(); 
 
   Wire.begin(); 
-
 }
 
 void loop(){
@@ -59,6 +60,7 @@ void loop(){
   Serial.print("z-g:      ");
   Serial.println(gVal[2]);
   Serial.println(); */
+
 
   Wire.beginTransmission(9);
   Wire.write(angles[2]);
