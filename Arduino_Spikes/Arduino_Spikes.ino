@@ -7,8 +7,8 @@ int neuronPin2 = 12;
 unsigned long startMillis;
 unsigned long currentMillis;
 
-int frequency;
-float highPeriod;  
+int frequency = 1;
+float highPeriod = 5;  
 float lowPeriod;
 float cycle;
 
@@ -18,44 +18,6 @@ bool inputState = LOW;
 bool neuronState = LOW;
 
 bool fire1, fire2;
-
-void fireNeurons(float frequency)
-{
-  Serial.println("fired");
-
-  bool exit = false;
-
-  if(exit == false)
-  {
-    float cycle = 1000/frequency;
-    lowPeriod  = 5*cycle/6;
-    highPeriod = cycle/6;
-
-    Serial.println(cycle);
-    Serial.println(lowPeriod);
-    Serial.println(highPeriod);
-    exit = true;
-  }
-
-  if(neuronState == LOW)
-  {
-    if (currentMillis - startMillis >= lowPeriod)
-    {
-      neuronState = HIGH;
-      digitalWrite(neuronPin1, LOW);
-      startMillis = currentMillis;
-    }
-  }
-  else
-  {
-    if (currentMillis - startMillis >= highPeriod)
-    {
-      neuronState = LOW;
-      digitalWrite(neuronPin1, HIGH);
-      startMillis = currentMillis;
-    }
-  }
-}
 
 void receiveEvent(int bytes) 
 {
@@ -69,7 +31,6 @@ void receiveEvent(int bytes)
   //Serial.println(angle);
 }
 
-
 void setup() 
 {
   pinMode(neuronPin1, OUTPUT);
@@ -81,10 +42,11 @@ void setup()
 
   Serial.begin(9600);
 
-  frequency = 1;
+  //frequency = 1;
   cycle = 1000/frequency;
-  lowPeriod  = 5*cycle/6;
-  highPeriod = cycle/6;
+  //lowPeriod  = 5*cycle/6;
+  lowPeriod = cycle - highPeriod;
+  //highPeriod = cycle/6;
 
   Serial.print("Frequency: ");
   Serial.print(frequency);
@@ -152,6 +114,8 @@ void loop()
       cycle = 1000/frequency;
       lowPeriod  = 5*cycle/6;
       highPeriod = cycle/6;
+      //highPeriod = 5;
+      //lowPeriod  = cycle - highPeriod;
     }
     else
     {
@@ -217,6 +181,44 @@ else
   digitalWrite(neuronPin2, HIGH);
 }
   
+}
+
+void fireNeurons(float frequency)
+{
+  Serial.println("fired");
+
+  bool exit = false;
+
+  if(exit == false)
+  {
+    float cycle = 1000/frequency;
+    lowPeriod  = 5*cycle/6;
+    highPeriod = cycle/6;
+
+    Serial.println(cycle);
+    Serial.println(lowPeriod);
+    Serial.println(highPeriod);
+    exit = true;
+  }
+
+  if(neuronState == LOW)
+  {
+    if (currentMillis - startMillis >= lowPeriod)
+    {
+      neuronState = HIGH;
+      digitalWrite(neuronPin1, LOW);
+      startMillis = currentMillis;
+    }
+  }
+  else
+  {
+    if (currentMillis - startMillis >= highPeriod)
+    {
+      neuronState = LOW;
+      digitalWrite(neuronPin1, HIGH);
+      startMillis = currentMillis;
+    }
+  }
 }
 
 
