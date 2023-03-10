@@ -93,13 +93,13 @@ void loop()
   {
     if(angle > 0)
     {
-      frequency = angle;
+      frequency = angle/3;
       fire1 = HIGH;
       fire2 = LOW;
     }
     else if (angle < 0)
     {
-      frequency = (angle * -1);
+      frequency = (angle * -1)/3;
       fire1 = LOW;
       fire2 = HIGH;
     }
