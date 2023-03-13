@@ -20,5 +20,5 @@ A Bio-inspired robot with an actual nervous system. In this ongoing project at B
  
 **Project location**: Université Paris Cité, Biomedical Engineering Division (BME).
 
-<! --- ![image](Gallery/UniversiteParisCite_logo_horizontal_couleur_RVB.png) --->
+<!--- ![image](Gallery/UniversiteParisCite_logo_horizontal_couleur_RVB.png) -->
 ![image](Gallery/NERVOBOT_BME_LOGOS.png)
