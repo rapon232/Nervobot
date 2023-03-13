@@ -1,5 +1,7 @@
 ![image](Gallery/UniversiteParisCite_logo_horizontal_couleur_RVB.png)
 
+![image](Gallery/NERVOBOT_LOGO.png)
+
 # Nervobot
  
  **Version 1.0.0**
