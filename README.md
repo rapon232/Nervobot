@@ -1,4 +1,4 @@
-![image](Gallery/UniversiteParisCite_logo_horizontal_couleur_RVB.png)
+
 
 ![image](Gallery/NERVOBOT_LOGO.png)
 
@@ -19,3 +19,5 @@ A Bio-inspired robot with an actual nervous system. In this ongoing project at B
 **Project supervisor**: Prof.-Dr. Samuel Bottani
  
 **Project location**: Université Paris Cité, Biomedical Engineering Division (BME).
+
+![image](Gallery/UniversiteParisCite_logo_horizontal_couleur_RVB.png)
